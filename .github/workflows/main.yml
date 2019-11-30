@@ -1,0 +1,18 @@
+on: push
+name: Main Workflow
+jobs:
+  sonarCloudTrigger:
+    name: SonarCloud Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Setting up deployment
+        run: |
+          echo "sonar.modules=api,codec,common,spi" >> sonar-project.properties
+          echo "sonar.projectKey=ardikars_pcap" >> sonar-project.properties
+          echo "sonar.projectName=Pcap" >> sonar-project.properties
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.sonar_token }}
