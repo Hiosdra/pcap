@@ -9,7 +9,7 @@ import pcap.common.annotation.Inclubating;
 @Inclubating
 public final class DateTimePattern {
 
-  private static String SPACE_DELIMITER = " ";
+  private final static String SPACE_DELIMITER = " ";
 
   public static final String DEFAULT_PATTERN =
       DatePattern.DD_MM_YYYY_WITH_SPACE_AS_DELIMITER.value()
@@ -48,7 +48,7 @@ public final class DateTimePattern {
     public static final DatePattern MM_YYYY_WITH_SPACE_AS_DELIMITER =
         new DatePattern("MM yyyy", "Month Year");
 
-    private static final Map<String, DatePattern> REGISTRY = new HashMap<String, DatePattern>();
+    private static final Map<String, DatePattern> REGISTRY = new HashMap<>();
 
     public DatePattern(String value, String name) {
       super(value, name);
@@ -98,7 +98,7 @@ public final class DateTimePattern {
     public static final TimePattern HH_MM_WITH_SPACE_AS_DELIMITER =
         new TimePattern("hh mm", "Hour Munite");
 
-    private static final Map<String, TimePattern> REGISTRY = new HashMap<String, TimePattern>();
+    private static final Map<String, TimePattern> REGISTRY = new HashMap<>();
 
     public TimePattern(String value, String name) {
       super(value, name);
